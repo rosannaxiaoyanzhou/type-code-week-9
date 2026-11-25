@@ -19,7 +19,12 @@
         function bgcolor()
         {
             let col = document.getElementById('tx').value;
-            document.body.style.backgroundColor = col;
+
+            if (CSS.supports('color', col)) {
+                document.body.style.backgroundColor = col;
+            } else {
+                alert('Error: "' + col + '" is not a color!');
+            }
         }
     </script>
 
